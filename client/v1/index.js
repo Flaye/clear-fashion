@@ -47,36 +47,91 @@ console.log(MY_FAVORITE_BRANDS[0]);
 
 // 🎯 TODO: Number of products
 // 1. Create a variable and assign it the number of products
+var nb_prod = marketplace.length;
 // 2. Log the variable
-
+console.log(nb_prod);
 
 // 🎯 TODO: Brands name
 // 1. Create a variable and assign it the list of brands name only
+function list_brand(){
+  let ret = []
+  for(let i in marketplace){
+      if(!(ret.includes(marketplace[i].brand))){
+          ret.push(marketplace[i].brand);
+      }
+  }
+  return ret;
+}
+var l_brand = list_brand();
 // 2. Log the variable
+console.log(l_brand);
 // 3. Log how many brands we have
+console.log(l_brand.length);
 
 
 // 🎯 TODO: Sort by price
 // 1. Create a function to sort the marketplace products by price
+function compare_price(a,b){
+  if(a.price < b.price){
+      return -1;
+  }else if(a.price > b.price){
+      return 1;
+  }
+  return 0;
+}
 // 2. Create a variable and assign it the list of products by price from lowest to highest
+marketplace.sort(compare_price)
 // 3. Log the variable
+console.log(marketplace);
 
 
 // 🎯 TODO: Sort by date
 // 1. Create a function to sort the marketplace objects by products date
+function compare_date(a,b){
+  if(a.date < b.date){
+      return -1;
+  }else if(a.date > b.date){
+      return 1;
+  }
+  return 0;
+}
 // 2. Create a variable and assign it the list of products by date from recent to old
+marketplace.sort(compare_date)
 // 3. Log the variable
-
+console.log(marketplace);
 
 // 🎯 TODO: Filter a specific price range
 // 1. Filter the list of products between 50€ and 100€
+marketplace.filter(prod => (prod.price >= 50 && prod.price <= 100));
 // 2. Log the list
+console.log(marketplace);
+
+//or
+function filter(a,b){
+  let ret = []
+  for(let i in marketplace){
+    if(marketplace[i].price < b && marketplace[i].price>a){ 
+      ret.push(marketplace[i]);
+    }
+  }
+  return ret;
+}
+
+
 
 
 // 🎯 TODO: Average price
 // 1. Determine the average price of the marketplace
-// 2. Log the average
+function average(){
+  let val = 0;
+  for(let i in marketplace){
+      val += marketplace[i].price;
+  }
+  return val / marketplace.length;
+}
 
+// 2. Log the average
+console.log(average());
 
 
 
@@ -101,19 +156,41 @@ console.log(MY_FAVORITE_BRANDS[0]);
 //   'brand-name-n': [{...}, {...}, ..., {...}],
 // };
 //
+function create_brands(){
+  let dict = {};
+  for(let i in marketplace){
+      if(marketplace[i].brand in dict){
+          dict[marketplace[i].brand].push(marketplace[i]);
+      }else{
+          dict[marketplace[i].brand] = [marketplace[i]];
+      }
+  }
+  return dict;
+}
 // 2. Log the variable
+var dict_brand = create_brands();
+console.log(dict_brand);
 // 3. Log the number of products by brands
-
+for( var i in dict_brand){
+  console.log(i)
+  console.log(dict_brand[i].length); 
+}
 
 // 🎯 TODO: Sort by price for each brand
 // 1. For each brand, sort the products by price, from highest to lowest
+for(var i in dict_brand){
+  dict_brand[i].sort(compare_price).reverse();
+}
 // 2. Log the sort
-
+console.log(dict_brand);
 
 // 🎯 TODO: Sort by date for each brand
 // 1. For each brand, sort the products by date, from old to recent
+for(var i in dict_brand){
+  dict_brand[i].sort(compare_date);
+}
 // 2. Log the sort
-
+console.log(dict_brand);
 
 
 
@@ -208,17 +285,37 @@ const COTELE_PARIS = [
 
 // 🎯 TODO: Reasonable price
 // // 1. Log if coteleparis is a reasonable price shop (true or false)
+function fair_price(){
+  for(let i in COTELE_PARIS){
+      if(COTELE_PARIS[i].price > 100){
+          return false;
+      }
+  }
+  return true;
+}
+console.log(fair_price())
+false;
 // // A reasonable price if all the products are less than 100€
 
 
 // 🎯 TODO: Find a specific product
 // 1. Find the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the product
+for(var i in COTELE_PARIS){
+  if(COTELE_PARIS[i].uuid == "b56c6d88-749a-5b4c-b571-e5b5c6483131"){
+      console.log(COTELE_PARIS[i]);
+  }
+}
 
 
 // 🎯 TODO: Delete a specific product
 // 1. Delete the product with the uuid `b56c6d88-749a-5b4c-b571-e5b5c6483131`
 // 2. Log the new list of product
+for(var i in COTELE_PARIS){
+  if(COTELE_PARIS[i].uuid == "b56c6d88-749a-5b4c-b571-e5b5c6483131"){
+      delete COTELE_PARIS[i];
+  }
+}
 
 // 🎯 TODO: Save the favorite product
 let blueJacket = {
@@ -234,7 +331,13 @@ let jacket = blueJacket;
 jacket.favorite = true;
 
 // 1. Log `blueJacket` and `jacket` variables
+console.log(blueJacket);
+
+console.log(jacket);
+
 // 2. What do you notice?
+
+//jacket contains 'favorite'
 
 blueJacket = {
   'link': 'https://coteleparis.com/collections/tous-les-produits-cotele/products/la-veste-bleu-roi',
