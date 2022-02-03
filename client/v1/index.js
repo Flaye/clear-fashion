@@ -102,9 +102,9 @@ console.log(marketplace);
 
 // 🎯 TODO: Filter a specific price range
 // 1. Filter the list of products between 50€ and 100€
-marketplace.filter(prod => (prod.price >= 50 && prod.price <= 100));
+var filtermarket = marketplace.filter(prod => (prod.price >= 50 && prod.price <= 100));
 // 2. Log the list
-console.log(marketplace);
+console.log(filtermarket);
 
 //or
 function filter(a,b){
@@ -156,7 +156,7 @@ console.log(average());
 //   'brand-name-n': [{...}, {...}, ..., {...}],
 // };
 //
-function create_brands(){
+function brands(){
   let dict = {};
   for(let i in marketplace){
       if(marketplace[i].brand in dict){
@@ -168,7 +168,7 @@ function create_brands(){
   return dict;
 }
 // 2. Log the variable
-var dict_brand = create_brands();
+var dict_brand = brands();
 console.log(dict_brand);
 // 3. Log the number of products by brands
 for( var i in dict_brand){
