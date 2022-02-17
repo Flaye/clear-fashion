@@ -205,10 +205,13 @@ console.log(dict_brand);
 // 🎯 TODO: Compute the p90 price value
 // 1. Compute the p90 price value of each brand
 // The p90 value (90th percentile) is the lower value expected to be exceeded in 90% of the products
-
-
-
-
+  for(let i in brands_dict){
+    brands_dict[i].sort(Compare_prices);
+    let len = parseFloat(Object.keys(brands_dict[i]).length);
+    len*= 0.9;
+    brands_dict[i]['p90'] = brands_dict[i][parseInt(len)]['price'];
+  }
+  console.log(brands_dict);
 
 /**
  * 🧥
