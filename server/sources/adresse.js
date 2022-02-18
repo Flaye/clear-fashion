@@ -8,31 +8,33 @@ const cheerio = require('cheerio');
  */
 const parse = data => {
   const $ = cheerio.load(data);
-  
-  return $('.category-products .products-grid .item')
+
+  return $('.product_list .ajax_block_product .product-container')
     .map((i, element) => {
       const name = $(element)
-        .find('.product-name')
+        .find('.right-block .versionpc  .product-name')
         .text()
         .trim()
         .replace(/\s/g, ' ');
+        
       const price = parseInt(
         $(element)
           .find('.price')
           .text()
       );
-      const link = $(element)
-        .find('.link-wishlist').attr("href");
 
-      
+      const link = $(element)
+        .find('.right-block .versionpc  .product-name').attr("href");
+
+      /*
       const date = $(element)
         .find('.productList-newLabel')
         .text();
-
+        */
       /*const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
         */
-      return {name, price, link, date};
+      return {name, price, link};
     })
     .get();
 };
