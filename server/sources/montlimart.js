@@ -11,6 +11,7 @@ const parse = data => {
   
   return $('.category-products .products-grid .item')
     .map((i, element) => {
+      const brand = "montlimart";
       const name = $(element)
         .find('.product-name')
         .text()
@@ -32,7 +33,7 @@ const parse = data => {
       /*const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
         */
-      return {name, price, link, date};
+      return {brand,name, price, link, date};
     })
     .get();
 };

@@ -11,6 +11,7 @@ const parse = data => {
 
   return $('.product_list .ajax_block_product .product-container')
     .map((i, element) => {
+      const brand = "adresseparis";
       const name = $(element)
         .find('.right-block .versionpc  .product-name')
         .text()
@@ -34,7 +35,7 @@ const parse = data => {
       /*const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
         */
-      return {name, price, link};
+      return {brand,name, price, link};
     })
     .get();
 };
