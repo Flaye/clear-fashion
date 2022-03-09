@@ -11,7 +11,7 @@ async function sandbox (eshop = 'https://adresse.paris/583-manteaux-et-blousons'
 
     const products = eshop.includes('dedicated') ? await dedicatedbrand.scrape(eshop)  : (eshop.includes('montlimart') ? await montlimart.scrape(eshop) : await adresse.scrape(eshop));
 
-    console.log(products);
+    //console.log(products);
     return products;
     process.exit(0);
   } catch (e) {
@@ -22,24 +22,24 @@ async function sandbox (eshop = 'https://adresse.paris/583-manteaux-et-blousons'
 
 const [,, eshop] = process.argv;
 
+let jsonfile = fs.readFileSync('./products.json');
+let currentProducts= JSON.parse(jsonfile);
+
 let prod = sandbox(eshop);
 prod.then((val) => {
   console.log("==== Debut prod ====");
-  val.forEach(function(element, idx, val) {
-    console.log("elem");
+  val.forEach(function(element){
     if(element.name != ''){
-      console.log("debut if");
-      console.log(typeof(element));
-      var jsonval = JSON.stringify(element);
-      console.log("jsonval")
-      console.log(jsonval);
-      if(idx == val.length-1){
-        fs.writeFileSync("products.json", jsonval,{flag:'a+'});
-      }else{
-        fs.writeFileSync("products.json", jsonval+",\n",{flag:'a+'});
-      }
+      currentProducts.push(element);
     }
-    console.log("end elem");
   });
-  console.log("end");
+  createJson(JSON.stringify(currentProducts));
 });
+
+async function createJson(currentProducts){
+  fs.writeFile('./products.json', currentProducts, err => {
+    // error checking
+    if(err) throw err;
+    console.log("New data added");
+});   
+}
