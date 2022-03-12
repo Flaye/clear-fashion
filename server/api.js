@@ -21,3 +21,25 @@ app.get('/', (request, response) => {
 app.listen(PORT);
 
 console.log(`📡 Running on port ${PORT}`);
+
+/* === Personal endpoint === */
+const MongoRequest = require('./db/index.js');
+
+app.get('/products/search/', (request, response)=>{
+  console.log(request.query);
+  let limit = request.query.limit ? request.query.limit : 12;
+  let brand = request.query.brand ? request.query.brand : "*";
+  let price = request.query.price ? request.query.price : null;
+  console.log(limit, brand, price);
+  MongoRequest.findBySearch(limit, brand, price).then((res) => {
+    console.log(res)
+    response.send({'product':res});
+  });
+});
+
+app.get('/products/:id', (request, response)=> {
+  MongoRequest.findById(request.params.id).then((res) => {
+    console.log(res)
+    response.send({'product':res});
+  });
+});

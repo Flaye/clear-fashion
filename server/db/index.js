@@ -1,10 +1,11 @@
 require('dotenv').config();
 const {MongoClient} = require('mongodb');
 const fs = require('fs');
+const { data } = require('cheerio/lib/api/attributes');
 
-const MONGODB_DB_NAME = 'clearfashion';
+const MONGODB_DB_NAME = 'products';
 const MONGODB_COLLECTION = 'products';
-const MONGODB_URI = "mongodb+srv://dbUser:dbUser@cluster0.biew1.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const MONGODB_URI = "mongodb+srv://flaye:flaye@products.mkggx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 let client = null;
 let database = null;
@@ -106,14 +107,25 @@ getDB().then(async db => {
     console.log(result);
 });*/
 
+/* === Requests === */
+
+const findById = module.exports.findById = async id => {
+  try{
+    const query = {_id:id}
+    const res = await this.find(query);
+    return res;
+  }catch(err){
+    console.log("🚨 find by id error :",err);
+  }
+}
+
 const findBrand = module.exports.findBrand = async brand => {
   try{
     const query = {brand}
     const res = await this.find(query);
     return res;
-    process.exit(0);
   }catch(err){
-    console.log("🚨 findBrand",err);
+    console.log("🚨 findBrand error :",err);
     process.exit(1);
   }
 }
@@ -125,7 +137,7 @@ const findLessThanPrice = module.exports.findLessThanPrice = async price => {
     return res;
     process.exit(0);
   }catch(err){
-    console.log("🚨 findLessThanPrice",err);
+    console.log("🚨 findLessThanPrice error :",err);
     process.exit(1);
   }
 }
@@ -138,19 +150,40 @@ const findSortedPrice = module.exports.findSortedPrice = async (order) => {
     const result = await collection.find().sort(mysort).toArray();
     return result;
   }catch(err){
-    console.log("🚨 findSorted",err);
+    console.log("🚨 findSorted error :",err);
     process.exit(1);
   }
 }
+
+const findBySearch = module.exports.findBySearch = async (limit = 12, brand, price) => {
+  try{
+    const db = await getDB();
+    const collection = db.collection(MONGODB_COLLECTION);
+    let query = {};
+    if(brand != "*"){
+      query["brand"] = brand;
+    }
+    if(price != null){
+      query["price"] = {$lte:parseInt(price)};
+    }
+    console.log(query)
+    var mysort = {price:  "asc"};
+    const res = await collection.find(query).sort(mysort).limit(parseInt(limit)).toArray();
+    return res;
+  }catch(err){
+    console.log("🚨 findBySearch error :",err);
+  }
+}
+
 /*
 findBrand("montlimart").then(brand => {
   console.log(brand);
 });
 */
-
+/*
 findLessThanPrice(50).then(price => {
   console.log(price);
-});
+});*/
 
 /*
 findSortedPrice(1).then(price => {
