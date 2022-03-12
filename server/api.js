@@ -26,13 +26,11 @@ console.log(`📡 Running on port ${PORT}`);
 const MongoRequest = require('./db/index.js');
 
 app.get('/products/search/', (request, response)=>{
-  console.log(request.query);
   let limit = request.query.limit ? request.query.limit : 12;
   let brand = request.query.brand ? request.query.brand : "*";
   let price = request.query.price ? request.query.price : null;
   console.log(limit, brand, price);
-  MongoRequest.findBySearch(limit, brand, price).then((res) => {
-    console.log(res)
+  MongoRequest.findBySearch(limit, brand, price, request.query).then((res) => {
     response.send({'product':res});
   });
 });
