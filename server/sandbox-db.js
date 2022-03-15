@@ -56,8 +56,8 @@ async function sandbox () {
     console.log("\nℹ️ Scrapping loom !");
 
     pages = [
-      'https://www.loom.fr/collections/hauts',
-      'https://www.loom.fr/collections/bas'
+      'https://www.loom.fr/collections/hauts-homme',
+      'https://www.loom.fr/collections/bas-homme'
     ];
 
     console.log('\n');
