@@ -37,9 +37,9 @@ prod.then((val) => {
 });
 
 async function createJson(currentProducts){
-  fs.writeFile('./products.json', currentProducts, err => {
-    // error checking
-    if(err) throw err;
-    console.log("New data added");
-});   
+    fs.writeFile('./products.json', currentProducts, err => {
+      // error checking
+      if(err) throw err;
+      console.log("New data added");
+  });   
 }

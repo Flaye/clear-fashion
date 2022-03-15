@@ -160,17 +160,19 @@ const findBySearch = module.exports.findBySearch = async (/*limit = 12, brand, p
     const db = await getDB();
     const collection = db.collection(MONGODB_COLLECTION);
     let query = {};
+    let limit = 12;
     for(const [key,val] of Object.entries(allQuery)){
       switch (key) {
         case "brand":
-          query["brand"] = brand;
+          query["brand"] = val;
           break;
         case "price":
-          query["price"] = {$lte:parseInt(price)};
+          query["price"] = {$lte:parseInt(val)};
+          break;
         case "limit":
+          limit = val;
           break;
         default:
-          console.log(key,":",val)
           query[key] = val;
           break;
       }
@@ -183,7 +185,7 @@ const findBySearch = module.exports.findBySearch = async (/*limit = 12, brand, p
       query["price"] = {$lte:parseInt(price)};
     }*/
     console.log(query)
-    var mysort = {price:  "asc"};
+    var mysort = {price: "asc"};
     const res = await collection.find(query).sort(mysort).limit(parseInt(limit)).toArray();
     return res;
   }catch(err){

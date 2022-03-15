@@ -1,11 +1,14 @@
 /* eslint-disable no-console, no-process-exit */
 const dedicatedbrand = require('./sites/dedicatedbrand');
+const adresse = require('./sources/adresse.js');
+const montlimart = require('./sources/montlimart');
 const loom = require('./sites/loom');
 const db = require('./db');
 
 async function sandbox () {
   try {
     let products = [];
+    console.log("ℹ️ Scrapping dedicatedbrand !")
     let pages = [
       'https://www.dedicatedbrand.com/en/men/basics',
       'https://www.dedicatedbrand.com/en/men/sale'
@@ -14,6 +17,7 @@ async function sandbox () {
     console.log(`🕵️‍♀️  browsing ${pages.length} pages with for...of`);
 
     // Way 1 with for of: we scrape page by page
+
     for (let page of pages) {
       console.log(`🕵️‍♀️  scraping ${page}`);
 
@@ -23,6 +27,33 @@ async function sandbox () {
 
       products.push(results);
     }
+    console.log("\nℹ️ Scrapping adresse.paris !")
+
+    pages = ["https://adresse.paris/630-toute-la-collection"];
+
+    for(let page of pages)
+    {
+      console.log(`🕵️‍♀️  scraping ${pages}`);
+      
+      let results = await adresse.scrape(pages);
+
+      products.push(results);
+    }
+
+
+
+    console.log("\nℹ️ Scrapping Montlimart !");
+    pages = ["https://www.montlimart.com/toute-la-collection.html"];
+    for(let page of pages)
+    {
+      console.log(`🕵️‍♀️  scraping ${pages}`);
+      
+      let results = await montlimart.scrape(pages);
+
+      products.push(results);
+    }
+
+    console.log("\nℹ️ Scrapping loom !");
 
     pages = [
       'https://www.loom.fr/collections/hauts',
@@ -62,7 +93,10 @@ async function sandbox () {
     const loomOnly = await db.find({'brand': 'loom'});
 
     console.log(`👕 ${loomOnly.length} total of products found for Loom`);
-    console.log(loomOnly);
+    //console.log(loomOnly);
+
+    //const allProd = await db.find({});
+    console.log(`👕 ${products.length} total of products found for all`)
 
     db.close();
   } catch (e) {
