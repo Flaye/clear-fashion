@@ -159,10 +159,17 @@ const findBySearch = module.exports.findBySearch = async (/*limit = 12, brand, p
   try{
     const db = await getDB();
     const collection = db.collection(MONGODB_COLLECTION);
-    let query = {};
     let limit = 12;
+
+    /*let page = allQuery.hasOwnProperty("page") ? allQuery["page"]: 1
+    let size = allQuery.hasOwnProperty("size") ? allQuery["size"] :12 */
+    let query = {};
     for(const [key,val] of Object.entries(allQuery)){
       switch (key) {
+        case "page":
+          break;
+        case "size":
+          break;
         case "brand":
           query["brand"] = val;
           break;
@@ -177,22 +184,29 @@ const findBySearch = module.exports.findBySearch = async (/*limit = 12, brand, p
           break;
       }
     }
-    /*
-    if(brand != "*"){
-      query["brand"] = brand;
-    }
-    if(price != null){
-      query["price"] = {$lte:parseInt(price)};
-    }*/
     console.log(query)
     var mysort = {price: "asc"};
-    const res = await collection.find(query).sort(mysort).limit(parseInt(limit)).toArray();
+    //console.log(size,page)
+    let res = await collection.find(query).sort(mysort).toArray()
+    //let res = Array.from(await collection.find(query).sort(mysort).toArray()).slice(size*(page-1),size*page);
     return res;
   }catch(err){
     console.log("🚨 findBySearch error :",err);
   }
 }
 
+const findAllBrands = module.exports.findAllBrands = async () =>{
+  try{
+    const db = await getDB();
+    const collection = db.collection(MONGODB_COLLECTION);
+    const result = await collection.distinct("brand", {})
+    console.log(result)
+    return result;
+  }catch(err){
+    console.log("🚨 findSorted error :",err);
+    process.exit(1);
+  }
+}
 /*
 findBrand("montlimart").then(brand => {
   console.log(brand);

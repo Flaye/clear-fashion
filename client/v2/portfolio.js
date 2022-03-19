@@ -51,9 +51,11 @@ const fetchProducts = async (page = 1, size = 12, brand = null) => {
     if(brand == null){
       var response = await fetch(
         `https://clear-fashion-api.vercel.app?page=${page}&size=${size}`
+        //'https://server-khaki-seven.vercel.app/'
       );
     }else{
       var response = await fetch(
+        //'https://server-khaki-seven.vercel.app/'
         `https://clear-fashion-api.vercel.app?page=${page}&size=${size}&brand=${brand}`
       );
     }

@@ -1,4 +1,5 @@
 //Vercel link : https://server-khaki-seven.vercel.app
+//client : https://client-henna-xi.vercel.app/
 const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
@@ -16,7 +17,9 @@ app.use(helmet());
 app.options('*', cors());
 
 app.get('/', (request, response) => {
-  response.send({'ack': true});
+  MongoRequest.find({}).then((res)=>{
+    response.send({'allProducts': res});
+  })
 });
 
 app.listen(PORT);
@@ -25,6 +28,7 @@ console.log(`📡 Running on port ${PORT}`);
 
 /* === Request endpoint === */
 const MongoRequest = require('./db/index.js');
+const {request, response} = require("express");
 
 app.get('/products/search/', (request, response)=>{
   /*let limit = request.query.limit ? request.query.limit : 12;
@@ -41,3 +45,9 @@ app.get('/products/:id', (request, response)=> {
     response.send({'product':res});
   });
 });
+
+app.get('/brands/get_all', (request, response)=>{
+  MongoRequest.findAllBrands().then((res) => {
+    response.send({'brand':res})
+  })
+})
