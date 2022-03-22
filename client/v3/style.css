@@ -1,0 +1,31 @@
+a{
+    text-decoration: none;
+}
+
+.topnav{
+    background-color: #fff;
+    overflow: hidden;
+    height: 7em;
+}
+
+.logo_nav{
+    padding-bottom:.2em ;
+    padding-top:.2em ;
+    max-height: 90%;
+}
+
+.topnav a {
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.my-card-content{
+    padding: 16px;
+}
+
+.my-card {
+    height: 350px;
+    width: 350px;
+}

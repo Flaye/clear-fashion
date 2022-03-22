@@ -24,16 +24,14 @@ const parse = data => {
       );
       const link = $(element)
         .find('.link-wishlist').attr("href");
-
-      
       const date = $(element)
         .find('.productList-newLabel')
         .text();
-
+      const photo = $(element).find('.product-image a img').attr("src");
       /*const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
         */
-      return {brand,name, price, link, date};
+      return {brand,name, price, link, date,photo};
     })
     .get();
 };

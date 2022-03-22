@@ -1,11 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70303e54-a128-41ea-8418-57f828386502" name="Changes" comment="" />
+    <list default="true" id="70303e54-a128-41ea-8418-57f828386502" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/v3/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sandbox.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sandbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sites/dedicatedbrand.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sites/dedicatedbrand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sources/adresse.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sources/adresse.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sources/dedicatedbrand.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sources/dedicatedbrand.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sources/montlimart.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sources/montlimart.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,7 +40,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/v3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../S2/Web data/Projet" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.3.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -42,10 +61,28 @@
       <updated>1647594296650</updated>
       <workItem from="1647594298734" duration="7335000" />
       <workItem from="1647612672443" duration="3683000" />
+      <workItem from="1647779588021" duration="2417000" />
+      <workItem from="1647794204181" duration="1928000" />
+      <workItem from="1647796404413" duration="716000" />
+      <workItem from="1647883553243" duration="3151000" />
+      <workItem from="1647955800621" duration="607000" />
+      <workItem from="1647958015480" duration="1380000" />
+      <workItem from="1647966864323" duration="13811000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

@@ -22,7 +22,7 @@ const selectSort = document.querySelector('#sort-select');
 /**
  * Set global values
  */
-const InitSetValues = (prods, brand) => {
+const InitValues = (prods, brand) => {
     allProducts = prods;
     list_brand = brand;
     nbPages = allProducts.length / currentShowSize;
@@ -46,7 +46,8 @@ const fetchProducts = async (brand = null) => {
             var response = await fetch(`http://localhost:8092/products/search?brand=${brand}`);
         }
         const body = await response.json();
-        return body['product'];
+        console.log(body['product'])
+        return body['product'].filter(e => e.price !== null);
     }catch (error){
         console.log(error);
         return currentProducts;
@@ -76,21 +77,22 @@ const renderProducts = products => {
     */
     const template = products
         .map(product => {
-            console.log(product.name)
+            console.log(product.photo)
             return `
-      <div className="card mb-3" id=${product.uuid}>
-        <div className="card-body">
-          <a href="${product.link}"><h4 className="card-title">${product.name}</h4></a>
-          <h6 className="card-subtitle mb-2 text-muted">${product.brand}</h6>
-          <p className="card-text">${product.price}</p>
-        </div>
-      </div>`;
+          <div class="col-3 card"  style="margin: 2em">
+            <img class="card-img-top" src="${product.photo}"/>
+            <div class="card-body">
+              <a href="${product.link}"><h4 class="card-title">${product.name}</h4></a>
+              <h6 class="card-subtitle mb-2 text-muted">${product.brand}</h6>
+              <p class="card-text">${product.price}</p>
+            </div>
+          </div>`;
         })
         .join('');
 
     /*div.innerHTML = template;
     fragment.appendChild(div);*/
-    sectionProducts.innerHTML = '<h2>Products</h2>';
+    sectionProducts.innerHTML = '<h2 class="text-center">Products</h2>';
     sectionProducts.innerHTML += template;
     //sectionProducts.appendChild(fragment);
 };
@@ -127,8 +129,8 @@ const render = (products, brands = null) => {
 document.addEventListener('DOMContentLoaded', async () =>{
     let prod = await fetchProducts();
     let brand = await fetchBrand();
-
-    InitSetValues(prod, brand);
+    prod.sort((a,b) => Math.random()-0.5);
+    InitValues(prod, brand);
     render(currentProducts, list_brand)
 })
 
@@ -150,7 +152,6 @@ selectPage.addEventListener('change', async (event) =>{
     render(currentProducts);
 });
 
-
 /**
  * Select the brand to display
  */
@@ -163,7 +164,8 @@ selectbrand.addEventListener('change', async(event) =>{
         currentBrand = null;
     }
     const products = await fetchProducts(currentBrand);
-    InitSetValues(products, list_brand);
+    products.sort((a,b) => Math.random()-0.5);
+    InitValues(products, list_brand);
     render(currentProducts);
 });
 
@@ -172,12 +174,15 @@ selectbrand.addEventListener('change', async(event) =>{
  */
 selectSort.addEventListener('change', async(event)=> {
     let copy_allProducts = [...allProducts];
-    copy_allProducts.sort((a,b) => {
-        return a['price'] - b['price'];
-    });
-    if(event.target.value == 'price-desc'){
+    if(event.target.value == 'price-asc'){
+        copy_allProducts.sort((a, b) => {
+            return a['price'] - b['price'];
+        });
+    }else if(event.target.value == 'price-desc'){
         copy_allProducts.reverse();
+    }else{
+        copy_allProducts.sort((a,b) => Math.random()-0.5);
     }
-    InitSetValues(copy_allProducts, list_brand);
+    InitValues(copy_allProducts, list_brand);
     render(currentProducts);
 });

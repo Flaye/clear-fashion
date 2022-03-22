@@ -28,11 +28,12 @@ const parse = data => {
       const date = $(element)
         .find('.productList-newLabel')
         .text();
-
+      const photo = $(element).find('.productList-image img').attr("data-src");
+        console.log(photo)
       const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
-        
-      return {brand, name, price, link, date, size};
+
+        return {brand, name, price, link, date, size, photo};
     })
     .get();
 };

@@ -27,6 +27,7 @@ const parse = data => {
       const link = $(element)
         .find('.right-block .versionpc  .product-name').attr("href");
 
+      const photo = $(element).find('.product_img_link img').attr("data-original");
       /*
       const date = $(element)
         .find('.productList-newLabel')
@@ -35,7 +36,7 @@ const parse = data => {
       /*const size = $(element)
         .find('.productList-size').toArray().map(x => { return $(x).text();});
         */
-      return {brand,name, price, link};
+      return {brand,name, price, link,photo};
     })
     .get();
 };

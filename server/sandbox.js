@@ -5,7 +5,7 @@ const montlimart = require('./sources/montlimart.js');
 const adresse = require('./sources/adresse.js');
 const fs = require('fs');
 
-async function sandbox (eshop = 'https://adresse.paris/583-manteaux-et-blousons') {
+async function sandbox (eshop = 'https://adresse.paris/602-nouveautes') {
   try {
     console.log(`🕵️‍♀️  browsing ${eshop} source`);
 
