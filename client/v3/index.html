@@ -27,48 +27,31 @@
       </div>
     </nav>
     <!-- === END Nav section === -->
-  <!--<h1>Clear fashion</h1>-->
-    <div style="padding:2em 0 2em 0" class="container">
-      <section id="options" style="padding-left: 2em">
-        <div class="row">
-          <div style="align-content: center" class="col">
-            <div id="show">
-            <label for="show-select" class="form-label">Show:</label>
-            <select name="show" id="show-select" class="form-select-sm" style="border: none">
-              <option value="12">12</option>
-              <option value="24">24</option>
-              <option value="48">48</option>
-            </select>
-          </div>
-        </div>
-          <!--
-          <div style="align-content: center" class="col">
-            <div id="page">
-              <label for="page-select" class="form-label">Go to page:</label>
-              <select name="page" id="page-select" class="form-select-sm" style="border: none"> </select>
-            </div>
-          </div>-->
-          <div style="align-content: center" class="col">
-            <div id="filters">
-              <div id="brand">
-                <label for="brand-select" class="form-label">By brands:</label>
-                <select name="brand" id="brand-select" class="form-select-sm" style="border: none"> </select>
-              </div>
-            </div>
-          </div>
-          <div style="align-content: center" class="col">
-            <div id="sort">
-          <label for="sort-select" class="form-label">Sort:</label>
-          <select name="sort" id="sort-select" class="form-select-sm" style="border: none">
-            <option value="none">Aucun</option>
-            <option value="price-asc">Cheaper</option>
-            <option value="price-desc">Expensive</option>
-          </select>
-        </div>
-        </div>
-        </div>
-      </section>
+
+  <div style="padding:1em 0 0 0" class="container">
+    <div id="show">
+      <label for="show-select" class="form-label">Show:</label>
+      <select name="show" id="show-select" class="form-select-sm pe-3" style="margin-right: 2em">
+        <option value="12">12</option>
+        <option value="24">24</option>
+        <option value="48">48</option>
+      </select>
+
+      <label for="brand-select" class="form-label">By brands:</label>
+      <select name="brand" id="brand-select" class="form-select-sm pe-3" style="margin-right: 2em"></select>
+
+      <label for="page-select" class="form-label">Go to page:</label>
+      <select name="page" id="page-select" class="form-select-sm pe-3" style="margin-right: 2em"> </select>
+
+      <label for="sort-select" class="form-label">Sort:</label>
+      <select name="sort" id="sort-select" class="form-select-sm pe-3" style="margin-right: 2em">
+        <option value="none">Aucun</option>
+        <option value="price-asc">Cheaper</option>
+        <option value="price-desc">Expensive</option>
+      </select>
+
     </div>
+  </div>
 
     <div style="padding:2em 0 2em 0" class="container">
       <div id="products" class="row">
