@@ -29,3 +29,57 @@ a{
     height: 350px;
     width: 350px;
 }
+
+/* Container needed to position the button. Adjust the width as needed */
+.container-hover {
+    position: relative;
+    width: 100%;
+}
+
+/* Make the image responsive */
+.container-hover img {
+    width: 100%;
+    height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container-hover .btn-cart-hover{
+    position: absolute;
+    top: 90%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 100%;
+}
+
+.container-hover:hover .btn-cart-hover {
+    visibility: visible;
+}
+
+
+.container-hover .btn-fav-hover{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: dimgray;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    visibility: hidden;
+    border-radius: 100%;
+}
+
+.container-hover:hover .btn-fav-hover {
+    visibility: visible;
+}

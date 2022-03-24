@@ -15,7 +15,10 @@ const parse = data => {
       const link = `https://www.loom.fr${$(element)
         .find('.product-title a')
         .attr('href')}`;
-
+      const photo= $(element)
+          .find('.product-grid-image a div .main-image')
+          .attr('src');
+      console.log(photo)
       return {
         link,
         'brand': 'loom',
@@ -29,10 +32,8 @@ const parse = data => {
           .text()
           .trim()
           .replace(/\s/g, ' '),
-        'photo': $(element)
-          .find('noscript img.product_card__image')
-          .attr('src'),
-        '_id': uuidv5(link, uuidv5.URL)
+        '_id': uuidv5(link, uuidv5.URL),
+        photo
       };
     })
     .get();
@@ -43,7 +44,7 @@ const parse = data => {
  * @param  {[type]}  url
  * @return {Array|null}
  */
-module.exports.scrape = async url => {
+const scrape = module.exports.scrape = async url => {
   try {
     const response = await fetch(url);
 

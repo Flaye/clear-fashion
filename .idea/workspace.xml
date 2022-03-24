@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="70303e54-a128-41ea-8418-57f828386502" name="Changes" comment="Mofidication scrape / HTML / add css / shulle products" />
+    <list default="true" id="70303e54-a128-41ea-8418-57f828386502" name="Changes" comment="Mofidication scrape / HTML / add css / shulle products">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/sites/loom.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/sites/loom.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +64,10 @@
       <workItem from="1647955800621" duration="607000" />
       <workItem from="1647958015480" duration="1380000" />
       <workItem from="1647966864323" duration="14051000" />
+      <workItem from="1648055805478" duration="732000" />
+      <workItem from="1648114340573" duration="4685000" />
+      <workItem from="1648124535550" duration="1425000" />
+      <workItem from="1648139997727" duration="11375000" />
     </task>
     <task id="LOCAL-00001" summary="Mofidication scrape / HTML / add css / shulle products">
       <created>1647987100982</created>

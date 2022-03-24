@@ -77,14 +77,18 @@ const renderProducts = products => {
     */
     const template = products
         .map(product => {
-            console.log(product.photo)
+            var photo = ((product.photo[0] !== '/')) ? product.photo : "https://cdn.20000lieux.com/tournage/sites/default/files/default_images/image-not-found_1.png"
             return `
-          <div class="col-3 card"  style="margin: 2em">
-            <img class="card-img-top" src="${product.photo}"/>
+          <div class="col-3 card"  style="margin: 2em; padding: 0; max-height: 10%">
+            <div class="container-hover">
+                <img class="card-img-top img-hover" src="${photo}" style="height: 350px;" />
+                  <button class="btn-cart-hover" id="${product._id}"><i class="fa-solid fa-cart-arrow-down" style="color: dimgrey"></i></button>
+                  <button class="btn-fav-hover" id="${product._id}"><i class="fa-regular fa-star"></i></button>
+            </div>
             <div class="card-body">
               <a href="${product.link}"><h4 class="card-title">${product.name}</h4></a>
               <h6 class="card-subtitle mb-2 text-muted">${product.brand}</h6>
-              <p class="card-text">${product.price}</p>
+              <p class="card-text">${product.price}€</p>
             </div>
           </div>`;
         })
