@@ -4,6 +4,9 @@
     <list default="true" id="70303e54-a128-41ea-8418-57f828386502" name="Changes" comment="Mofidication scrape / HTML / add css / shulle products">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/v3/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/portfolio.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/portfolio.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/v3/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/v3/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/api.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +66,17 @@
       <workItem from="1648055805478" duration="732000" />
       <workItem from="1648114340573" duration="4685000" />
       <workItem from="1648124535550" duration="1425000" />
-      <workItem from="1648139997727" duration="12550000" />
+      <workItem from="1648139997727" duration="13640000" />
+      <workItem from="1648203240038" duration="265000" />
+      <workItem from="1648227061663" duration="981000" />
+      <workItem from="1648293477122" duration="341000" />
+      <workItem from="1648318116441" duration="253000" />
+      <workItem from="1648318395708" duration="29000" />
+      <workItem from="1648375704316" duration="596000" />
+      <workItem from="1648385505904" duration="648000" />
+      <workItem from="1648395030691" duration="400000" />
+      <workItem from="1648624843711" duration="291000" />
+      <workItem from="1648899385258" duration="310000" />
     </task>
     <task id="LOCAL-00001" summary="Mofidication scrape / HTML / add css / shulle products">
       <created>1647987100982</created>

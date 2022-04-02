@@ -83,3 +83,13 @@ a{
 .container-hover:hover .btn-fav-hover {
     visibility: visible;
 }
+
+.btn-menu{
+    background-color: white;
+    color: dimgray;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 100%;
+}

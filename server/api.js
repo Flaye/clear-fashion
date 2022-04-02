@@ -26,6 +26,8 @@ app.listen(PORT);
 
 console.log(`📡 Running on port ${PORT}`);
 
+console.log()
+
 /* === Request endpoint === */
 const MongoRequest = require('./db/index.js');
 const {request, response} = require("express");

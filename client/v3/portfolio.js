@@ -41,9 +41,11 @@ const Show_currentProducts = () => {
 const fetchProducts = async (brand = null) => {
     try {
         if (brand == null){
-            var response = await fetch("http://localhost:8092/products/search?");
+            //var response = await fetch("http://localhost:8092/products/search?");
+            var response = await fetch("https://server-khaki-seven.vercel.app/products/search?");
         }else {
-            var response = await fetch(`http://localhost:8092/products/search?brand=${brand}`);
+            //var response = await fetch(`http://localhost:8092/products/search?brand=${brand}`);
+            var response = await fetch(`https://server-khaki-seven.vercel.app/products/search?brand=${brand}`);
         }
         const body = await response.json();
         console.log(body['product'])
@@ -56,7 +58,8 @@ const fetchProducts = async (brand = null) => {
 
 const fetchBrand = async () => {
     try {
-        var response = await fetch("http://localhost:8092/brands/get_all")
+        //var response = await fetch("http://localhost:8092/brands/get_all")
+        var response = await fetch("https://server-khaki-seven.vercel.app/brands/get_all")
         const brand = await response.json()
         return brand['brand']
     }catch (error){
@@ -118,6 +121,7 @@ const renderPagination = () => {
     selectPage.innerHTML = options;
     selectPage.selectedIndex = currentPage - 1;
 }
+
 
 const render = (products, brands = null) => {
     renderProducts(products);
